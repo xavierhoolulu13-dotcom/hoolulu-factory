@@ -1,0 +1,66 @@
+nano core/command_center.pyimport os
+
+def show_header():
+    print("""
+========================================
+        HOOLULU FACTORY OS v2
+========================================
+""")
+
+def run():
+    while True:
+
+        show_header()
+
+        print("""
+LEADS
+1. View Leads
+
+SALES
+2. Factory Report
+3. View Opportunities
+
+CONTENT
+4. Run Nurture Engine
+
+FORGE
+5. Run Forge Task Queue
+
+SYSTEM
+6. Backup Factory
+
+0. Exit
+""")
+
+        choice = input("Select: ")
+
+        if choice == "1":
+            os.system("python core/view.py")
+
+        elif choice == "2":
+            os.system("python core/factory_report.py")
+
+        elif choice == "3":
+            os.system("python core/opportunity_view.py")
+
+        elif choice == "4":
+            os.system("python agents/nurture.py")
+
+        elif choice == "5":
+            os.system("python agents/forge/task_queue.py")
+
+        elif choice == "6":
+            os.system(
+                "mkdir -p backups/manual && cp -r core agents skills config data tasks logs backups/manual/"
+            )
+            print("BACKUP COMPLETE")
+
+        elif choice == "0":
+            print("HOOLULU FACTORY OFFLINE")
+            break
+
+        else:
+            print("Invalid command")
+
+if __name__ == "__main__":
+    run()
