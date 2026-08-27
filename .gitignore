@@ -9,3 +9,18 @@ Dependencies.toml
 Config.toml
 # the config files used for testing, Uncomment the following line if you want to commit the test config files
 #!**/tests/Config.toml
+
+# --- Hoolulu agent ---
+# local runtime state (database, logs, backups) must never be committed
+data/
+logs/
+backups/
+*.db
+*.db-wal
+*.db-shm
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
