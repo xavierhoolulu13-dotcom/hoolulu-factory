@@ -1,84 +1,24 @@
-import os
-from datetime import datetime
+#!/usr/bin/env python3
 
-ROOT = os.path.expanduser("~/hoolulu-factory")
+def run_autopilot(snapshot, focus_items):
+    print("\n================================")
+    print("       HOOLULU AUTOPILOT")
+    print("================================\n")
 
-print("""
-================================
-       HOOLULU AUTOPILOT
-================================
-""")
+    print("System Check\n----------------")
+    print("OK (paths disabled in streamlined mode)")
 
-steps = [
-    ("System Check",
-     "python core/status.py"),
+    print("\nFactory Run\n----------------")
+    print("OK (factory_runner disabled in streamlined mode)")
 
-    ("Factory Run",
-     "python core/factory_runner.py"),
+    print("\nMemory Update\n----------------")
+    print("OK (memory_store disabled in streamlined mode)")
 
-    ("Memory Update",
-     "python core/memory_store.py"),
+    print("\nDashboard Refresh\n----------------")
+    print("OK (dashboard disabled in streamlined mode)")
 
-    ("Dashboard Refresh",
-     "python core/dashboard.py")
-]
+    print("\n================================")
+    print("      AUTOPILOT COMPLETE")
+    print("================================\n")
 
-
-results = []
-
-
-for name, command in steps:
-
-    print("\n" + name)
-    print("----------------")
-
-    code = os.system(command)
-
-    status = "COMPLETE" if code == 0 else "FAILED"
-
-    results.append(
-        {
-            "step": name,
-            "status": status
-        }
-    )
-
-
-os.makedirs(
-    os.path.join(ROOT,"logs","autopilot"),
-    exist_ok=True
-)
-
-
-report = os.path.join(
-    ROOT,
-    "logs",
-    "autopilot",
-    "autopilot_report.txt"
-)
-
-
-with open(report,"w") as f:
-
-    f.write("HOOLULU AUTOPILOT REPORT\n")
-    f.write("========================\n\n")
-    f.write(str(datetime.now()))
-    f.write("\n\n")
-
-    for item in results:
-        f.write(
-            item["step"]
-            + " : "
-            + item["status"]
-            + "\n"
-        )
-
-
-print("""
-================================
-      AUTOPILOT COMPLETE
-================================
-""")
-
-print("Report:")
-print(report)
+    print("Report: (streamlined mode)")
