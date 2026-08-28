@@ -1,5 +1,19 @@
 # Hoolulu Factory — Coding Agent Extension
 
+> ## 📴 Hoolulu Offline — the installable app
+>
+> [`hoolulu_offline/`](hoolulu_offline/README.md) is an offline-first PWA built
+> on top of this factory: talk to AI with no network (on-device model → local
+> Ollama → offline brain → queue-and-run-later), scaffold and edit real
+> projects, run clients → gigs → proposals → invoices, and sync it all between
+> devices through a zero-dependency Python server.
+>
+> ```bash
+> cd hoolulu_offline && python3 server.py --port 8080
+> ```
+>
+> See [hoolulu_offline/README.md](hoolulu_offline/README.md).
+
 This package adds a **CodingAgent** and **AgentForge** (meta agent builder) to your hoolulu-factory.
 
 ## What's inside
