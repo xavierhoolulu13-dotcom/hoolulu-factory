@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoolulu Factory Agent</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤙</text></svg>">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div id="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🤙</span>
+      <div>
+        <h1>Hoolulu Factory Agent</h1>
+        <p class="tagline">your own coding agent &mdash; builds and runs the factory</p>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge" id="brain-badge" title="Which brain is answering">brain: …</span>
+      <span class="badge" id="db-badge" title="Factory database">db: …</span>
+      <span class="badge ghost">v{{ version }}</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <!-- ============ CHAT ============ -->
+    <section class="panel chat-panel">
+      <div class="panel-head">
+        <h2>Command the factory</h2>
+        <button class="linkbtn" id="clear-chat" title="Clear the conversation">clear</button>
+      </div>
+
+      <div class="messages" id="messages" aria-live="polite"></div>
+
+      <div class="chips" id="chips"></div>
+
+      <form class="composer" id="composer" autocomplete="off">
+        <textarea id="input" rows="1"
+          placeholder="Tell the agent what to do…  (e.g. run the pipeline)"
+          aria-label="Message the agent"></textarea>
+        <button type="submit" id="send" class="primary">Send</button>
+      </form>
+      <p class="hint">Enter to send · Shift+Enter for a new line · every action is logged to
+        <code>logs/agent_audit.log</code></p>
+    </section>
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="side">
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Factory</h2>
+          <button class="linkbtn" id="refresh">refresh</button>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="pipeline" id="pipeline"></div>
+        <div id="top-leads"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>One click</h2></div>
+        <div class="actions" id="actions"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Activity</h2>
+          <button class="linkbtn" id="clear-log">clear</button>
+        </div>
+        <ul class="log" id="log"></ul>
+      </section>
+
+    </aside>
+  </main>
+</div>
+
+<!-- modal for tools that need arguments -->
+<div class="modal-wrap" id="modal-wrap" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3 id="modal-title">Tool</h3>
+    <p class="modal-desc" id="modal-desc"></p>
+    <form id="modal-form"></form>
+    <div class="modal-actions">
+      <button type="button" class="ghostbtn" id="modal-cancel">Cancel</button>
+      <button type="button" class="primary" id="modal-run">Run it</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

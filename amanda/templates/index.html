@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amanda · Hoolulu Factory</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>🌺</text></svg>">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div id="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🌺</span>
+      <div>
+        <h1>Amanda</h1>
+        <p class="tagline">say it once — she researches, builds, tests, ships and watches it</p>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge" id="brain-badge" title="Which brain is answering">brain: …</span>
+      <span class="badge" id="tier-badge" title="Deployment tier">tier: …</span>
+      <span class="badge ghost">v{{ version }}</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <section class="panel chat-panel">
+      <div class="panel-head">
+        <h2>Command the factory</h2>
+        <button class="linkbtn" id="clear-chat">clear</button>
+      </div>
+      <div class="messages" id="messages" aria-live="polite"></div>
+      <div class="chips" id="chips"></div>
+      <form class="composer" id="composer" autocomplete="off">
+        <textarea id="input" rows="1"
+          placeholder="build me a snake game and host it"
+          aria-label="Message Amanda"></textarea>
+        <button type="submit" id="send" class="primary">Send</button>
+      </form>
+      <p class="hint">Enter to send · Shift+Enter for a new line · every stage is
+        logged to <code>core/event-log/loops/events.jsonl</code></p>
+    </section>
+
+    <aside class="side">
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Live products</h2>
+          <button class="linkbtn" id="refresh">refresh</button>
+        </div>
+        <div id="deployments" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>Waiting on you</h2></div>
+        <div id="approvals" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>Factory</h2></div>
+        <div id="factory" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><h2>Recent stages</h2></div>
+        <div id="events" class="list mono"></div>
+      </section>
+
+    </aside>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

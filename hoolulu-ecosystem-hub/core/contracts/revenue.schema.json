@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/revenue",
+  "title": "Revenue",
+  "type": "object",
+  "required": [
+    "slug",
+    "model",
+    "price_usd",
+    "projection"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,38}$"
+    },
+    "model": {
+      "type": "string"
+    },
+    "price_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "unit": {
+      "type": "string"
+    },
+    "projection": {
+      "type": "object",
+      "required": [
+        "month_1_usd",
+        "month_3_usd",
+        "month_12_usd"
+      ],
+      "properties": {
+        "month_1_usd": {
+          "type": "number"
+        },
+        "month_3_usd": {
+          "type": "number"
+        },
+        "month_12_usd": {
+          "type": "number"
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actual": {
+      "type": "object",
+      "properties": {
+        "gross_usd": {
+          "type": "number"
+        },
+        "customers": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

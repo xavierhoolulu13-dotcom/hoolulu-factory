@@ -1,0 +1,17 @@
+{
+  "name": "OpenHands",
+  "upstream": "https://github.com/All-Hands-AI/OpenHands",
+  "license": "MIT",
+  "requires_network": false,
+  "env": [],
+  "offline_capable": true,
+  "integration": {
+    "status": "stub",
+    "adapter": null,
+    "notes": "Contract and config live here. No runtime code calls it yet \u2014 adapters are opt-in and the hub runs fully without them."
+  },
+  "review": {
+    "security": "unreviewed",
+    "last_reviewed": null
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "claim_types": {
+    "demand": {
+      "requires": [
+        "operator-note",
+        "intel-report"
+      ],
+      "min_confidence": 0.4
+    },
+    "competitor": {
+      "requires": [
+        "intel-report"
+      ],
+      "min_confidence": 0.4
+    },
+    "price": {
+      "requires": [
+        "intel-report",
+        "operator-note"
+      ],
+      "min_confidence": 0.3
+    },
+    "build": {
+      "requires": [
+        "build-output",
+        "test-result"
+      ],
+      "min_confidence": 0.8
+    },
+    "delivery": {
+      "requires": [
+        "test-result",
+        "screenshot"
+      ],
+      "min_confidence": 0.7
+    },
+    "revenue": {
+      "requires": [
+        "receipt"
+      ],
+      "min_confidence": 0.9
+    }
+  },
+  "rule": "A claim may not be promoted to a decision until it carries at least one artifact of every required type and meets min_confidence. Missing evidence downgrades the claim to a hypothesis, never to a fact."
+}

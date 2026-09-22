@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/product",
+  "title": "Product",
+  "type": "object",
+  "required": [
+    "slug",
+    "name",
+    "one_liner",
+    "audience",
+    "problem",
+    "value_prop",
+    "features",
+    "mvp_scope",
+    "monetization",
+    "distribution",
+    "scores",
+    "provenance"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,38}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "one_liner": {
+      "type": "string",
+      "minLength": 10
+    },
+    "template": {
+      "type": "string",
+      "enum": [
+        "web_game",
+        "landing_page",
+        "tool"
+      ]
+    },
+    "audience": {
+      "type": "object",
+      "required": [
+        "who",
+        "where"
+      ],
+      "properties": {
+        "who": {
+          "type": "string"
+        },
+        "where": {
+          "type": "string"
+        },
+        "pain_level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        }
+      }
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 10
+    },
+    "value_prop": {
+      "type": "string",
+      "minLength": 10
+    },
+    "features": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "why"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          },
+          "effort": {
+            "type": "string",
+            "enum": [
+              "s",
+              "m",
+              "l"
+            ]
+          }
+        }
+      }
+    },
+    "mvp_scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "out_of_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "monetization": {
+      "type": "object",
+      "required": [
+        "model",
+        "price_usd",
+        "unit",
+        "first_dollar_path"
+      ],
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "price_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "type": "string"
+        },
+        "billing": {
+          "type": "string",
+          "enum": [
+            "once",
+            "monthly",
+            "yearly",
+            "usage"
+          ]
+        },
+        "first_dollar_path": {
+          "type": "string"
+        }
+      }
+    },
+    "distribution": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "channel",
+          "why"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          },
+          "effort": {
+            "type": "string",
+            "enum": [
+              "s",
+              "m",
+              "l"
+            ]
+          }
+        }
+      }
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "offering": {
+            "type": "string"
+          },
+          "weakness": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "differentiation": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "risk": {
+            "type": "string"
+          },
+          "mitigation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scale_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "sellability",
+        "scalability",
+        "buildability"
+      ],
+      "properties": {
+        "sellability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "scalability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "buildability": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "confidence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "offline-heuristic",
+            "offline-model",
+            "live"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "generated_at": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

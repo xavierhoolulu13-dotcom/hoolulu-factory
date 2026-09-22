@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="{{ACCENT}}">
+<meta name="description" content="{{ONE_LINER}}">
+<title>{{NAME}}</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>{{EMOJI}}</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">{{EYEBROW}}</p>
+    <h1>{{NAME}}</h1>
+    <p class="tag">{{TAGLINE}}</p>
+    <div class="cta-row">
+      <a class="cta" href="{{CTA_URL}}">{{CTA_LABEL}}</a>
+      <a class="cta ghost" href="tel:{{PHONE}}">Call {{PHONE}}</a>
+    </div>
+    <p class="promise">{{PROMISE}}</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="problem">
+    <h2>{{PROBLEM_TITLE}}</h2>
+    <p>{{PROBLEM}}</p>
+    <p class="answer"><b>Our take:</b> {{VALUE_PROP}}</p>
+  </section>
+
+  <section>
+    <h2>What you get</h2>
+    <ul class="features">{{FEATURE_CARDS}}</ul>
+  </section>
+
+  <section class="pricing">
+    <h2>Pricing</h2>
+    <div class="price-card">
+      <p class="amount">{{PRICE}}</p>
+      <p class="unit">{{PRICE_UNIT}}</p>
+      <ul>{{PRICE_POINTS}}</ul>
+      <a class="cta" href="{{CTA_URL}}">{{CTA_LABEL}}</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <div class="faq">{{FAQ_ITEMS}}</div>
+  </section>
+
+  <section class="close">
+    <h2>{{CTA_TITLE}}</h2>
+    <p>{{CTA_TEXT}}</p>
+    <a class="cta" href="{{CTA_URL}}">{{CTA_LABEL}}</a>
+  </section>
+
+</main>
+
+<footer>{{FOOTER}}</footer>
+<script src="app.js"></script>
+</body>
+</html>

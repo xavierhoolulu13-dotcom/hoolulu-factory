@@ -1,0 +1,20 @@
+{
+  "name": "Firecrawl",
+  "upstream": "https://github.com/mendableai/firecrawl",
+  "license": "AGPL-3.0",
+  "requires_network": true,
+  "env": [
+    "FIRECRAWL_URL",
+    "FIRECRAWL_API_KEY"
+  ],
+  "offline_capable": false,
+  "integration": {
+    "status": "stub",
+    "adapter": null,
+    "notes": "Contract and config live here. No runtime code calls it yet \u2014 adapters are opt-in and the hub runs fully without them."
+  },
+  "review": {
+    "security": "unreviewed",
+    "last_reviewed": null
+  }
+}

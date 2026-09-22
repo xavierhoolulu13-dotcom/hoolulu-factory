@@ -1,9 +1,45 @@
-__pycache__/
-*.pyc
-*.pyo
+# generated files
+target/
+generated/
+
+# dependencies
+Dependencies.toml
+
+# config files
+Config.toml
+# the config files used for testing, Uncomment the following line if you want to commit the test config files
+#!**/tests/Config.toml
+
+# --- local runtime state (never commit this) ---
 data/
 logs/
+backups/
+*.db
+*.db-wal
+*.db-shm
 *.log
 *.save
 .env
+
+# --- python ---
+.venv/
+__pycache__/
+*.py[cod]      # also covers *.pyc / *.pyo
+.pytest_cache/
+
+# --- ecosystem hub runtime state ---
+builds/
+deployed/
+packages/
+hoolulu-ecosystem-hub/core/event-log/loops/*.jsonl
+
+# skill exports written by `markus skill export` into the working directory
+*-claude/
+*-openclaw/
+*-soul/
+*-mcp-server/
+*-agentscope/
+*-markus/
+
+# --- os / editors ---
 .DS_Store

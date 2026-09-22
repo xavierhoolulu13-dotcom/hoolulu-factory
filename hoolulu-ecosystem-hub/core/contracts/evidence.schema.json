@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/evidence",
+  "title": "Evidence",
+  "type": "object",
+  "required": [
+    "claim",
+    "evidence_type",
+    "artifacts",
+    "confidence"
+  ],
+  "properties": {
+    "claim": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "screenshot",
+        "build-output",
+        "test-result",
+        "receipt",
+        "operator-note",
+        "intel-report"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "bytes": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "collected_at": {
+      "type": "string"
+    },
+    "collector": {
+      "type": "string"
+    }
+  }
+}

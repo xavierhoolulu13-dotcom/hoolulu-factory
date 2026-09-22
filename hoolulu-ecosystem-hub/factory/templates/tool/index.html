@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="{{ACCENT}}">
+<meta name="description" content="{{ONE_LINER}}">
+<title>{{NAME}}</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>{{EMOJI}}</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+
+  <header class="head">
+    <h1>{{NAME}}</h1>
+    <p class="tag">{{TAGLINE}}</p>
+  </header>
+
+  <form id="entry" class="card" autocomplete="off">
+    <div class="row">
+      <label>What<input id="what" required placeholder="{{LABEL_ONE}}" maxlength="60"></label>
+      <label>Amount<input id="amount" type="number" step="0.01" min="0" required placeholder="{{LABEL_TWO}}"></label>
+    </div>
+    <button type="submit" class="cta">Add</button>
+  </form>
+
+  <section class="card">
+    <div class="totals">
+      <div><span>Entries</span><b id="count">0</b></div>
+      <div><span>Total</span><b id="total">$0.00</b></div>
+    </div>
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty">Nothing logged yet. Add your first entry above.</p>
+    <div class="row end">
+      <button id="export" class="ghost">Export CSV</button>
+      <button id="clear" class="ghost danger">Clear all</button>
+    </div>
+  </section>
+
+  <p class="note">Saved in this browser only — nothing leaves your device.
+    Use Export before clearing your cache.</p>
+
+  <footer>{{FOOTER}}</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
