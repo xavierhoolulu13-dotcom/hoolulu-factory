@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hoolulu Offline</title>
+<meta name="description" content="Offline-first AI workspace: talk to AI with no network, build projects, run your business, sync when you reconnect.">
+<meta name="theme-color" content="#080d18">
+<meta name="color-scheme" content="dark">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-64.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hoolulu">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="icons/icon-192.png" alt="" width="30" height="30">
+      <div>
+        <strong>Hoolulu</strong>
+        <span>offline workspace</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-btn" data-view="chat">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-2.8-.4L4 21l1.6-4.2A8.3 8.3 0 0 1 3.6 11 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+        <span>Chat</span>
+      </button>
+      <button class="nav-btn" data-view="projects">
+        <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
+        <span>Projects</span>
+      </button>
+      <button class="nav-btn" data-view="money">
+        <svg viewBox="0 0 24 24"><path d="M12 2v20M17 6.5C17 4.6 14.8 3.5 12 3.5S7 4.6 7 6.5s2.2 3 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg>
+        <span>Money</span>
+      </button>
+      <button class="nav-btn" data-view="sync">
+        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/></svg>
+        <span>Sync</span>
+      </button>
+      <button class="nav-btn" data-view="settings">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.2-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 4.1a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 11a2 2 0 1 1 0 4Z"/></svg>
+        <span>Settings</span>
+      </button>
+    </nav>
+
+    <div class="side-foot">
+      <div class="engine-pill" id="engine-pill" title="Which brain is answering">
+        <span class="dot"></span><span id="engine-text">offline brain</span>
+      </div>
+      <button class="btn tiny ghost block" id="install-btn" hidden>Install app</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="view-title">Chat</h1>
+      </div>
+      <div class="pills">
+        <span class="pill" id="pill-net" title="Network"><span class="dot"></span><span>offline</span></span>
+        <span class="pill" id="pill-sync" title="Pending changes to sync"><span id="sync-count">0</span> pending</span>
+        <button class="pill action" id="pill-syncnow" title="Sync now">Sync</button>
+      </div>
+    </header>
+
+    <main id="view" class="view"></main>
+  </div>
+</div>
+
+<div class="mobile-warn" id="offline-banner" hidden>
+  Offline — everything still works. Changes sync when you reconnect.
+</div>
+
+<script type="module" src="js/app.js"></script>
+<noscript>
+  <p style="padding:24px;color:#e6edf7;font-family:system-ui">
+    Hoolulu Offline needs JavaScript enabled. It runs entirely on your device.
+  </p>
+</noscript>
+</body>
+</html>

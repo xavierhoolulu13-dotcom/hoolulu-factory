@@ -10,26 +10,27 @@ Config.toml
 # the config files used for testing, Uncomment the following line if you want to commit the test config files
 #!**/tests/Config.toml
 
-# --- Hoolulu agent ---
-# local runtime state (database, logs, backups) must never be committed
+# --- local runtime state (never commit this) ---
 data/
 logs/
 backups/
 *.db
 *.db-wal
 *.db-shm
+*.log
+*.save
+.env
 
-# python
+# --- python ---
 .venv/
 __pycache__/
-*.py[cod]
+*.py[cod]      # also covers *.pyc / *.pyo
 .pytest_cache/
 
 # --- ecosystem hub runtime state ---
 builds/
 deployed/
 packages/
-.env
 hoolulu-ecosystem-hub/core/event-log/loops/*.jsonl
 
 # skill exports written by `markus skill export` into the working directory
@@ -39,3 +40,6 @@ hoolulu-ecosystem-hub/core/event-log/loops/*.jsonl
 *-mcp-server/
 *-agentscope/
 *-markus/
+
+# --- os / editors ---
+.DS_Store
