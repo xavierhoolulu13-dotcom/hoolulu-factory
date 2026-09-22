@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/loop-event",
+  "title": "LoopEvent",
+  "type": "object",
+  "description": "One line in core/event-log/loops/events.jsonl. Append-only, never rewritten.",
+  "required": [
+    "ts",
+    "loop_id",
+    "stage",
+    "status"
+  ],
+  "properties": {
+    "ts": {
+      "type": "string"
+    },
+    "loop_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object"
+    },
+    "next": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

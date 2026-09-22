@@ -24,3 +24,18 @@ backups/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# --- ecosystem hub runtime state ---
+builds/
+deployed/
+packages/
+.env
+hoolulu-ecosystem-hub/core/event-log/loops/*.jsonl
+
+# skill exports written by `markus skill export` into the working directory
+*-claude/
+*-openclaw/
+*-soul/
+*-mcp-server/
+*-agentscope/
+*-markus/

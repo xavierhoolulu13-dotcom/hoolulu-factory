@@ -1,0 +1,63 @@
+{
+  "hub": "hoolulu-ecosystem-hub",
+  "version": "0.1.0",
+  "policy": "Nothing here is a hard dependency. Every adapter is opt-in and the hub degrades to offline-deterministic behaviour when it is absent.",
+  "components": [
+    {
+      "id": "openhands",
+      "name": "OpenHands",
+      "license": "MIT",
+      "requires_network": false,
+      "status": "stub",
+      "required": false
+    },
+    {
+      "id": "zerobuild",
+      "name": "ZeroBuild",
+      "license": "MIT",
+      "requires_network": false,
+      "status": "stub",
+      "required": false
+    },
+    {
+      "id": "browser-agent",
+      "name": "browser-agent",
+      "license": "Apache-2.0",
+      "requires_network": false,
+      "status": "stub",
+      "required": false
+    },
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl",
+      "license": "AGPL-3.0",
+      "requires_network": true,
+      "status": "stub",
+      "required": false
+    },
+    {
+      "id": "searxng",
+      "name": "SearXNG",
+      "license": "AGPL-3.0",
+      "requires_network": false,
+      "status": "stub",
+      "required": false
+    },
+    {
+      "id": "changedetection",
+      "name": "changedetection.io",
+      "license": "MIT",
+      "requires_network": false,
+      "status": "stub",
+      "required": false
+    },
+    {
+      "id": "archivebox",
+      "name": "ArchiveBox",
+      "license": "MIT",
+      "requires_network": false,
+      "status": "stub",
+      "required": false
+    }
+  ]
+}

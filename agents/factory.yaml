@@ -1,0 +1,57 @@
+# ---------------------------------------------------------------------------
+# Hoolulu Agent Factory — the workforce, declared.
+#
+# Loaded by hub/factory/agent_factory.py. Editing this file changes who works
+# on a build; nothing else needs to change. Every agent points its
+# `offline_model` at one llama.cpp server, so there is one brain and many hands.
+# ---------------------------------------------------------------------------
+
+factory:
+  name: Hoolulu-Factory
+  offline_model: http://localhost:8080
+  # What the swarm is for: turning one sentence into a shipped, sellable product.
+  mission: >-
+    Take a plain-language request, decide whether it is worth building, build it,
+    prove it works, hand it to a human for the release decision, then keep it alive.
+
+  workforce:
+    - name: Researcher808
+      role: market_analyst
+      capabilities: [market_scan, competitor_scan, demand_estimation]
+      target: [product, market, pricing]
+      human_gate: false
+
+    - name: Productizer808
+      role: product_manager
+      capabilities: [positioning, pricing, feature_cut, differentiation]
+      target: [product, monetization, distribution]
+      human_gate: false
+
+    - name: Builder808-Dev
+      role: rapid_prototyper
+      capabilities: [scaffold, codegen, template_instantiation]
+      target: [web_game, landing_page, tool]
+      human_gate: false
+
+    - name: QA808
+      role: qa_engineer
+      capabilities: [compile_check, smoke_test, score_gate]
+      target: [build, regression]
+      human_gate: false
+      # A build that cannot clear this score never reaches a human for release.
+      gate:
+        min_score: 70
+
+    - name: Ship808
+      role: release_engineer
+      capabilities: [package, deploy, rollback]
+      target: [delivery, hosting]
+      # The only gated agent: nothing goes live without a human and evidence.
+      human_gate: true
+      requires_evidence: true
+
+    - name: Keeper808
+      role: maintainer
+      capabilities: [health_check, rebuild, drift_detect]
+      target: [deployment, uptime]
+      human_gate: false

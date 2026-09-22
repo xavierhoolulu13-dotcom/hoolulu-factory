@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# Deployment tiers and guardrails.
+#
+# Read by hub/approvals/gates.py. `development` is what you iterate in —
+# a build can go live the moment it passes QA. `production` is what a customer
+# touches, so high-impact actions stop at a human with evidence.
+# ---------------------------------------------------------------------------
+
+deployments:
+  development:
+    resources:
+      memory: 256Mi
+    guardrails: off
+    # Builds are served from ./deployed/<slug> and reachable at /p/<slug>/.
+    channel: local-static
+    auto_release: true
+
+  production:
+    resources:
+      memory: 1Gi
+    guardrails:
+      human_gate: true
+      # Required before a release, a price change, or bulk outreach.
+      trace_evidence: true
+    channel: local-static
+    auto_release: false
+
+# Actions that always stop for a human, in either tier. (Releasing to
+# production is gated by the production guardrails below, not by this list —
+# there is no such thing as a production release in the development tier.)
+gated_actions:
+  - change_price
+  - bulk_outreach
+  - delete_deployment
+  - spend_money
+
+# What counts as trace evidence (see core/approvals/approval-policy.md).
+evidence:
+  accepted_types:
+    - screenshot
+    - build-output
+    - test-result
+    - receipt
+    - operator-note
+    - intel-report
+  min_artifacts: 1

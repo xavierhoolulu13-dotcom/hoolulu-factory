@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/research",
+  "title": "Research",
+  "type": "object",
+  "required": [
+    "query",
+    "findings",
+    "gaps"
+  ],
+  "properties": {
+    "query": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,38}$"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "source",
+          "confidence"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "local-corpus",
+              "searxng",
+              "firecrawl",
+              "model",
+              "operator"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generated_at": {
+      "type": "string"
+    }
+  }
+}

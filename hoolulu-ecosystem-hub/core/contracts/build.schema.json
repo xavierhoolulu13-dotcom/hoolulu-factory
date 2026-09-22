@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/build",
+  "title": "Build",
+  "type": "object",
+  "required": [
+    "slug",
+    "template",
+    "artifacts",
+    "entry",
+    "status"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,38}$"
+    },
+    "template": {
+      "type": "string",
+      "enum": [
+        "web_game",
+        "landing_page",
+        "tool"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "bytes",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "entry": {
+      "type": "string"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "ok"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "built",
+        "failed",
+        "quarantined"
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

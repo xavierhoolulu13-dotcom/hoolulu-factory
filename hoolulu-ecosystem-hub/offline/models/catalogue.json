@@ -1,0 +1,46 @@
+{
+  "catalogue_version": 1,
+  "note": "Models the hub knows how to run through llama.cpp. The hub only ever talks to an OpenAI-compatible endpoint, so any server works — this list is what ops/doctor.sh checks for and what mobile/termux/setup.sh downloads.",
+  "default": "llama-3.2-3b-q4_k_m",
+  "models": [
+    {
+      "id": "llama-3.2-3b-q4_k_m",
+      "family": "Llama 3.2",
+      "params": "3B",
+      "quantization": "Q4_K_M",
+      "size_gb": 2.2,
+      "full_precision_gb": 7.0,
+      "shrink_pct": 68.66,
+      "context": 4096,
+      "threads": 6,
+      "ram_required_gb": 3.0,
+      "fits_mobile": true,
+      "source": "https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF",
+      "file": "Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "use": "default brain for the swarm"
+    },
+    {
+      "id": "qwen2.5-1.5b-q4_k_m",
+      "family": "Qwen2.5",
+      "params": "1.5B",
+      "quantization": "Q4_K_M",
+      "size_gb": 1.1,
+      "full_precision_gb": 3.5,
+      "shrink_pct": 68.6,
+      "context": 4096,
+      "threads": 4,
+      "ram_required_gb": 1.6,
+      "fits_mobile": true,
+      "source": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+      "file": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "use": "low-RAM phones and fast iterations"
+    }
+  ],
+  "serve": {
+    "command": "llama-server",
+    "args": ["-m", "{model_path}", "--port", "8080", "-t", "{threads}", "-c", "{context}"],
+    "base_url": "http://localhost:8080/v1",
+    "health_paths": ["/v1/models", "/health", "/props"],
+    "notes": "One server, one port, every agent points at it. -t pins CPU threads so inference stays responsive while the phone keeps working."
+  }
+}

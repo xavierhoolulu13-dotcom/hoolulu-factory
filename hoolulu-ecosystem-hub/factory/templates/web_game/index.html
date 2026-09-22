@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="{{ACCENT}}">
+<meta name="description" content="{{ONE_LINER}}">
+<title>{{NAME}}</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>{{EMOJI}}</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+
+  <header class="head">
+    <h1>{{NAME}}</h1>
+    <p class="tag">{{TAGLINE}}</p>
+  </header>
+
+  <div class="hud">
+    <div class="stat"><span>Score</span><b id="score">0</b></div>
+    <div class="stat"><span>Best</span><b id="best">0</b></div>
+    <div class="stat"><span>Level</span><b id="level">1</b></div>
+  </div>
+
+  <div class="stage">
+    <canvas id="board" width="400" height="400" aria-label="game board"></canvas>
+    <div id="overlay" class="overlay hidden">
+      <div class="card">
+        <h2 id="overlay-title">Ready?</h2>
+        <p id="overlay-text">Use the arrow keys or swipe.</p>
+        <button id="overlay-btn" class="primary">Play</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="play" class="primary">Pause</button>
+    <button id="restart">Restart</button>
+    <button id="share">Copy challenge</button>
+  </div>
+  <p class="hint">Arrow keys or WASD · swipe on a phone · space to pause</p>
+
+  <section class="sell">
+    <h2>{{CTA_TITLE}}</h2>
+    <p>{{CTA_TEXT}}</p>
+    <a class="cta" href="{{CTA_URL}}">{{CTA_LABEL}}</a>
+  </section>
+
+  <footer>{{FOOTER}}</footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

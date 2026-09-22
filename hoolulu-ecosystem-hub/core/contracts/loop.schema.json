@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hoolulu://contracts/loop",
+  "title": "Loop",
+  "type": "object",
+  "required": [
+    "loop_id",
+    "stage",
+    "status",
+    "next"
+  ],
+  "properties": {
+    "loop_id": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "ts": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "intake",
+        "research",
+        "reasoning",
+        "approval",
+        "build",
+        "qa",
+        "package",
+        "deliver",
+        "maintain"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "blocked",
+        "failed",
+        "skipped"
+      ]
+    },
+    "inputs": {
+      "type": "object"
+    },
+    "outputs": {
+      "type": "object"
+    },
+    "next": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

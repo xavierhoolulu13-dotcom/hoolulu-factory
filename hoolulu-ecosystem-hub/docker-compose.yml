@@ -1,0 +1,3 @@
+# docker-compose.yml
+
+Optional container profile for the network adapters (SearXNG, Firecrawl, changedetection).
